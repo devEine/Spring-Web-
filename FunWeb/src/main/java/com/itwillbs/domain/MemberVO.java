@@ -3,15 +3,14 @@ package com.itwillbs.domain;
 import java.sql.Date;
 
 public class MemberVO {
-	//VO(value Object): 값을 저장하는 객체
-	//=> JavaBean, DTO와 동일한 개념 
+	// VO(Value Object) : 값을 저장하는 객체
+	// => JavaBean,DTO 개념 동일
 	
-	//도메인(domain) : 개발(프로젝트) 진행 시, 가장 중요한 기능(역할)을 명시하는 단어(명사)
-	//=> ex:영화 프로젝트에서 가장 중요한 기능 -> 영화,회원,영화관 등 
-	//      카페 프로젝트에서 가장 중요한 기능 -> 메뉴,고객 등   
-	//=> 물리적으로 분리가 가능한 단위의 개념 (DB분리 해야하는 것)
+	// 도메인(domain) : 개발(프로젝트) 진행시 가장 중요한 기능(역활) 단어(명사)
+	// => 영화,회원,영화관, 메뉴,차종,예약, 결제
+	// => 물리적으로 분리가 가능한 단위의 개념 (DB분리 해야하는것)
 	
-	//tbl_member 테이블의 정보를 저장,전달
+	// tbl_member 테이블의 정보를 저장,전달
 	private String userid;
 	private String userpw;
 	private String username;
@@ -19,13 +18,7 @@ public class MemberVO {
 	private Date regdate;
 	private Date updatedate;
 	
-	
-	@Override
-	public String toString() {
-		return "MemberVO [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", useremail="
-				+ useremail + ", regdate=" + regdate + ", updatedate=" + updatedate + "]";
-	}
-	
+	// alt shift s + r
 	public String getUserid() {
 		return userid;
 	}
@@ -63,5 +56,11 @@ public class MemberVO {
 		this.updatedate = updatedate;
 	}
 	
+	// alt shift s + s
+	@Override
+	public String toString() {
+		return "MemberVO [userid=" + userid + ", userpw=" + userpw + ", username=" + username + ", useremail="
+				+ useremail + ", regdate=" + regdate + ", updatedate=" + updatedate + "]";
+	}
 	
 }

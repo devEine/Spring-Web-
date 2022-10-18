@@ -7,8 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="./css/default.css" rel="stylesheet" type="text/css">
-<link href="./css/subpage.css" rel="stylesheet" type="text/css">
+<!-- pageContext.request.contextPath 으로 상대경로 지정  -->
+<link href="${pageContext.request.contextPath }/resources/css/default.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath }/resources/css/subpage.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js" type="text/javascript"></script>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/ie7-squish.js" type="text/javascript"></script>
@@ -57,7 +58,7 @@
     <th class="tread">Read</th></tr>
     <c:forEach var="dto" items="${boardList }">
     <tr><td>${dto.bno }</td>
-    <td class="left"><a href="./BoardContent.bo?bno=${dto.bno }">${dto.subject }</a></td>
+    <td class="left"><a href="${pageContext.request.contextPath }/board/content?bno=${dto.bno }">${dto.subject }</a></td>
     <td>${dto.name }</td>
     <td><fmt:formatDate value="${dto.date }" pattern="yyyy.MM.dd"/> </td><td>${dto.readcount }</td></tr>
     </c:forEach>
@@ -71,7 +72,7 @@
 </div>
 
 <div id="table_search">
-<form action="./BoardListSearch.bo" name="fr" method="get">
+<form action="${pageContext.request.contextPath }/board/listSearch" name="fr" method="get">
 <input type="text" name="search" class="input_box">
 <input type="submit" value="search" class="btn">
 </form>
@@ -80,16 +81,16 @@
 <div class="clear"></div>
 <div id="page_control">
 
-<c:if test="${startPage > pageBlock }">
-	<a href="./BoardList.bo?pageNum=${startPage - pageBlock}">Prev</a>
+<c:if test="${vo.startPage > vo.pageBlock }">
+	<a href="${pageContext.request.contextPath }/board/list?pageNum=${vo.startPage - vo.pageBlock}">Prev</a>
 </c:if>
 
-<c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
-	<a href="./BoardList.bo?pageNum=${i }">${i }</a>
+<c:forEach var="i" begin="${vo.startPage }" end="${vo.endPage }" step="1">
+	<a href="${pageContext.request.contextPath }/board/list?pageNum=${i }">${i }</a>
 </c:forEach>
 
-<c:if test="${endPage < pageCount }">
-	<a href="./BoardList.bo?pageNum=${startPage + pageBlock}">Next</a>
+<c:if test="${vo.endPage < vo.pageCount }">
+	<a href="${pageContext.request.contextPath }/board/list?pageNum=${vo.startPage + vo.pageBlock}">Next</a>
 </c:if>
 
 </div>

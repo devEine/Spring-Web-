@@ -7,31 +7,31 @@
 <title>member/update.jsp</title>
 <link href="${pageContext.request.contextPath }/resources/css/default.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/resources/css/subpage.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="./script/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/script/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#join').submit(function(){
 // 			alert("전송");
-			if($('.id').val()==""){
-				alert('아이디 입력하세요');
-				$('.id').focus();
-				return false;
-			}
-			if($('.pw').val()==""){
-				alert('비밀번호 입력하세요');
-				$('.pw').focus();
-				return false;
-			}
-			if($('.name').val()==""){
-				alert('이름 입력하세요');
-				$('.name').focus();
-				return false;
-			}
-			if($('.email').val()==""){
-				alert('이메일 입력하세요');
-				$('.email').focus();
-				return false;
-			}
+// 			if($('.id').val()==""){
+// 				alert('아이디 입력하세요');
+// 				$('.id').focus();
+// 				return false;
+// 			}
+// 			if($('.pw').val()==""){
+// 				alert('비밀번호 입력하세요');
+// 				$('.pw').focus();
+// 				return false;
+// 			}
+// 			if($('.name').val()==""){
+// 				alert('이름 입력하세요');
+// 				$('.name').focus();
+// 				return false;
+// 			}
+// 			if($('.email').val()==""){
+// 				alert('이메일 입력하세요');
+// 				$('.email').focus();
+// 				return false;
+// 			}
 		});//
 		
 		
@@ -67,9 +67,9 @@
 <label>Password</label>
 <input type="password" name="userpw" class="pw"><br>
 <label>Name</label>
-<input type="text" name="username" class="name" value="${vo.username }"><br>
+<input type="text" name="username" class="username" value="${vo.username }"><br>
 <label>E-Mail</label>
-<input type="email" name="useremail" class="email" value="${vo.useremail }"><br>
+<input type="email" name="useremail" class="useremail" value="${vo.useremail }"><br>
 </fieldset>
 
 <fieldset>

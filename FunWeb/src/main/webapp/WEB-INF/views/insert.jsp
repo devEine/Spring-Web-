@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>web-inf/views/insert.jsp</title>
+<title>/WEB-INF/views/insert.jsp</title>
 </head>
 <body>
-<h1>web-inf/views/insert.jsp</h1>
-
+<h1>/WEB-INF/views/insert.jsp</h1>
 </body>
 </html>

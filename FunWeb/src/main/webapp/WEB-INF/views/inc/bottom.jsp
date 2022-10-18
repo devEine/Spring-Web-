@@ -10,5 +10,4 @@ Fax +82 64 123 4321</div>
 height="33" alt="Facebook">
 <img src="${pageContext.request.contextPath }/resources/images/twitter.gif" width="34" height="34"
 alt="Twitter"></div>
-<!-- ${pageContext.request.contextPath }/resource : 프로젝트 경로/resources밑에 images파일 -->
 </footer>

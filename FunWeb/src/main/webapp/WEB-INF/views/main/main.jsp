@@ -8,17 +8,20 @@
 <link href="${pageContext.request.contextPath }/resources/css/default.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/resources/css/front.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript" src="./script/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/resources/script/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.brown').click(function(){
 // 			alert("클릭");
 			$.ajax({
-				url:'./BoardListMain.bo',
+				url:'${pageContext.request.contextPath }/board/listJson',
 				dataType:'json',
 				success:function(rdata){
 					$.each(rdata,function(index,item){
-$('table').append('<tr><td class="contxt"><a href="#">'+item.subject+'</a></td><td>'+item.date+'</td></tr>');						
+						//item,date 숫자 skf => 문자 변경 => 출력 
+						var dt = new Date(item.date);	
+						var d = dt.getFullYear()+"."+(dt.getMonth()+1)+"."+dt.getDate();
+$('table').append('<tr><td class="contxt"><a href="#">'+item.subject+'</a></td><td>'+d+'</td></tr>');						
 					});
 				}
 			});

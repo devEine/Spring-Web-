@@ -8,8 +8,6 @@
 <link href="${pageContext.request.contextPath }/resources/css/default.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath }/resources/css/subpage.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/script/jquery-3.6.0.js"></script>
-<!--resource에 옮긴 css파일 경로 재설정해주기  -->
-<!-- <%-- <%=request.getContextPath() %> --%> 앞에 프로젝트 경로 추가해주기 -->
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#join').submit(function(){
@@ -48,16 +46,15 @@
 		
 		//아이디 중복체크
 		$('.dup').click(function(){
- 			//alert("중복");
+// 			alert("중복");
 			$.ajax({
 				url:'${pageContext.request.contextPath }/member/idcheck',
-				//주소에 가상주소 기입
 				data:{'id':$('.id').val()},
 				success:function(rdata){
-					if(rdata=="iddup"){
-						radta="아이디  중복";
+					if(rdata=='iddup'){
+						rdata="아이디 중복";
 					}else{
-						radata="아이디 사용가능";
+						rdata="아이디 사용가능";
 					}
 					$('.iddiv').html(rdata);
 				}
@@ -89,7 +86,6 @@
 <article>
 <h1>Join Us</h1>
 <form action="${pageContext.request.contextPath }/member/insertPro" id="join" method="post">
-<!-- form의 내용을 들고 member/insertPro가상 주소로 이동  -->
 <fieldset>
 <legend>Basic Info</legend>
 <label>User ID</label>
@@ -101,13 +97,13 @@
 <label>Password</label>
 <input type="password" name="userpw" class="pw"><br>
 <label>Retype Password</label>
-<input type="password" name="userpw2" class="pw2"><br>
+<input type="password" name="pw2" class="pw2"><br>
 <label>Name</label>
 <input type="text" name="username" class="name"><br>
 <label>E-Mail</label>
 <input type="email" name="useremail" class="email"><br>
 <label>Retype E-Mail</label>
-<input type="email" name="useremail2" class="email2"><br>
+<input type="email" name="email2" class="email2"><br>
 </fieldset>
 
 <fieldset>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.itwillbs.mapper.BoardMapper">
+
+<select id="getMaxNo" resultType="java.lang.Integer">
+	select max(bno) from itwill_board
+</select>
+	
+<insert id="boardWrite">
+insert into itwill_board(bno,name,pass,subject,content,readcount,re_ref,re_lev,re_seq,date,ip,file) 
+values(#{bno},#{name},#{pass},#{subject},#{content},#{readcount},#{re_ref},#{re_lev},#{re_seq},#{date},#{ip},#{file})
+</insert>
+
+<select id="getBoardList" resultType="com.itwillbs.domain.BoardVO">
+select * from itwill_board order by re_ref desc, re_seq asc limit #{startRow},#{pageSize}
+</select>
+
+<select id="getBoardCount" resultType="java.lang.Integer">
+select count(*) from itwill_board
+</select>
+
+<select id="getBoardListSearch" resultType="com.itwillbs.domain.BoardVO">
+select count(*) from itwill_board where subject like #{search} order by re_ref desc, re_seq asc limit #{startRow},#{pageSize} 
+</select>
+
+<select id="getBoardCountSearch" resultType="java.lang.Integer">
+select count(*) from itwill_board where subject like #{search} 
+</select>
+
+
+
+</mapper>  
+
+
+
+
+
